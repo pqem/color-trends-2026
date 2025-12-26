@@ -1,0 +1,96 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        neutral: {
+          50: '#F5F5F0',
+          100: '#F4F4F2',
+          200: '#CFD8DC',
+          300: '#B7ACA3',
+          400: '#837060',
+          500: '#455A64',
+          600: '#3A3A3A',
+          700: '#0D0D0D',
+        },
+        primary: {
+          DEFAULT: '#316064',
+          dark: '#005F6A',
+          light: '#7CBFAD',
+          subtle: '#E8F4F8',
+        },
+        accent: {
+          warm: '#D49A6A',
+          violet: '#B39DDB',
+          gold: '#DDC48E',
+        },
+        semantic: {
+          success: '#7CBFAD',
+          warning: '#FFB94C',
+          error: '#9B372E',
+          info: '#7DA9D9',
+        }
+      },
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
+      },
+      fontSize: {
+        'xs': '12px',
+        'sm': '14px',
+        'base': '16px',
+        'lg': '18px',
+        'xl': '20px',
+        '2xl': '24px',
+        '3xl': '32px',
+        '4xl': '40px',
+        '5xl': '56px',
+        '6xl': '64px',
+      },
+      spacing: {
+        '1': '4px',
+        '2': '8px',
+        '3': '12px',
+        '4': '16px',
+        '5': '20px',
+        '6': '24px',
+        '8': '32px',
+        '10': '40px',
+        '12': '48px',
+        '16': '64px',
+        '20': '80px',
+        '24': '96px',
+        '32': '128px',
+      },
+      boxShadow: {
+        'xs': '0 1px 2px rgba(0, 0, 0, 0.05)',
+        'sm': '0 2px 4px rgba(0, 0, 0, 0.06)',
+        'md': '0 4px 12px rgba(0, 0, 0, 0.08)',
+        'lg': '0 8px 24px rgba(0, 0, 0, 0.12)',
+        'xl': '0 12px 32px rgba(0, 0, 0, 0.16)',
+        '2xl': '0 16px 48px rgba(0, 0, 0, 0.20)',
+      },
+      borderRadius: {
+        'none': '0',
+        'sm': '4px',
+        'md': '6px',
+        'lg': '8px',
+        'xl': '12px',
+        '2xl': '16px',
+        'full': '9999px',
+      },
+      transitionDuration: {
+        'instant': '100ms',
+        'fast': '200ms',
+        'normal': '300ms',
+        'slow': '500ms',
+        'slower': '700ms',
+      },
+    },
+  },
+  plugins: [],
+}
