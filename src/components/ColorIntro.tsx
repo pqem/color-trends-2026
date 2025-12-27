@@ -1,40 +1,21 @@
 import { motion } from 'framer-motion';
+import { colorsOfYear } from '../data/colors-of-year';
+import { fadeInUpSlow, liftOnHover, viewportOnce, staggerItem } from '../utils/animations';
 
 export default function ColorIntro() {
-  const colorsOfYear = [
-    {
-      name: "Cloud Dancer",
-      hex: "#F4F4F2",
-      code: "PANTONE 11-4201",
-      brand: "Pantone",
-      description: "The first white chosen as Color of the Year. Represents visual clarity and breathing room in a world of digital overload.",
-      textColor: "text-neutral-700"
-    },
-    {
-      name: "Transformative Teal",
-      hex: "#316064",
-      code: "COLORO 092-37-14",
-      brand: "WGSN",
-      description: "Innovation meets environmental consciousness. A balance between technology and nature, representing growth and transformation.",
-      textColor: "text-neutral-50"
-    }
-  ];
-
   return (
     <section className="py-20 md:py-24 px-5 md:px-10 bg-neutral-50">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          {...fadeInUpSlow}
+          viewport={viewportOnce}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-700 mb-4">
-            Colors of the Year 2026
+            Colores del Año 2026
           </h2>
           <p className="text-lg text-neutral-500 max-w-2xl mx-auto">
-            A historic moment: For the first time, white leads the way, alongside a conscious teal.
+            Un momento histórico: Por primera vez, el blanco lidera el camino, junto a un teal consciente.
           </p>
         </motion.div>
 
@@ -44,11 +25,9 @@ export default function ColorIntro() {
               key={color.hex}
               className="rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-normal"
               style={{ backgroundColor: color.hex }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -8 }}
+              {...staggerItem(index, 0.2)}
+              {...liftOnHover}
+              viewport={viewportOnce}
             >
               <div className="p-8 md:p-10 min-h-[400px] flex flex-col justify-between">
                 <div>

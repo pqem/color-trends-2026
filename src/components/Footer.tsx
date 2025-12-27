@@ -1,4 +1,5 @@
 import { Heart, Github, Twitter, Linkedin } from 'lucide-react';
+import { EXTERNAL_LINKS } from '../utils/constants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,40 +11,40 @@ export default function Footer() {
           {/* About */}
           <div>
             <h3 className="text-xl font-bold text-neutral-50 mb-4">
-              2026 Color Trends
+              Tendencias de Color 2026
             </h3>
             <p className="text-sm leading-relaxed mb-4">
-              A comprehensive guide to color palettes for the era of visual regeneration. Designed for designers, developers, and creative professionals.
+              Una guía completa de paletas de colores para la era de la regeneración visual. Diseñada para diseñadores, desarrolladores y profesionales creativos.
             </p>
             <p className="text-xs text-neutral-400">
-              Built with Emotional Minimalism
+              Construido con Minimalismo Emocional
             </p>
           </div>
 
           {/* Links */}
           <div>
             <h4 className="text-sm font-semibold text-neutral-50 mb-4 uppercase tracking-wide">
-              Resources
+              Recursos
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#palettes" className="hover:text-primary transition-colors">
-                  Color Palettes
+                  Paletas de Colores
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Design System
+                <a href={EXTERNAL_LINKS.DESIGN_SYSTEM} className="hover:text-primary transition-colors">
+                  Sistema de Diseño
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Documentation
+                <a href={EXTERNAL_LINKS.DOCUMENTATION} className="hover:text-primary transition-colors">
+                  Documentación
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Accessibility
+                <a href={EXTERNAL_LINKS.ACCESSIBILITY} className="hover:text-primary transition-colors">
+                  Accesibilidad
                 </a>
               </li>
             </ul>
@@ -52,31 +53,31 @@ export default function Footer() {
           {/* Credits & Social */}
           <div>
             <h4 className="text-sm font-semibold text-neutral-50 mb-4 uppercase tracking-wide">
-              Credits
+              Créditos
             </h4>
             <ul className="text-sm space-y-2 mb-6">
-              <li>Research: Pablo</li>
-              <li>Documentation: Claude (Anthropic)</li>
-              <li>Sources: Pantone, WGSN, CMG</li>
+              <li>Investigación: Pablo Quevedo</li>
+              <li>Documentación: Claude (Anthropic)</li>
+              <li>Fuentes: Pantone, WGSN, CMG</li>
             </ul>
 
             <div className="flex gap-4">
               <a
-                href="#"
+                href={EXTERNAL_LINKS.GITHUB}
                 className="p-2 rounded-lg bg-neutral-600 hover:bg-primary transition-colors"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href={EXTERNAL_LINKS.TWITTER}
                 className="p-2 rounded-lg bg-neutral-600 hover:bg-primary transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href={EXTERNAL_LINKS.LINKEDIN}
                 className="p-2 rounded-lg bg-neutral-600 hover:bg-primary transition-colors"
                 aria-label="LinkedIn"
               >
@@ -89,10 +90,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-neutral-600 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p className="text-neutral-400">
-            © {currentYear} 2026 Color Trends. All rights reserved.
+            © {currentYear} Tendencias de Color 2026. Todos los derechos reservados.
           </p>
           <p className="flex items-center gap-2 text-neutral-400">
-            Made with <Heart className="w-4 h-4 text-primary fill-current" /> using Claude Code
+            Hecho con <Heart className="w-4 h-4 text-primary fill-current" /> usando Claude Code
           </p>
         </div>
       </div>

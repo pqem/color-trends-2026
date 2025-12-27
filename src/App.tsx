@@ -1,16 +1,20 @@
-import Hero from './components/Hero';
+import HeroImmersive from './components/HeroImmersive';
 import ColorIntro from './components/ColorIntro';
-import PaletteGallery from './components/PaletteGallery';
+import PalettesExplorer from './components/PalettesExplorer';
 import DownloadCTA from './components/DownloadCTA';
+import ClaudeReveal from './components/ClaudeReveal';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-neutral-100">
-      <Hero />
+    <div className="min-h-screen bg-black">
+      <HeroImmersive />
       <ColorIntro />
-      <PaletteGallery />
+      <PalettesExplorer />
       <DownloadCTA />
+      <div id="claude-reveal">
+        <ClaudeReveal />
+      </div>
       <Footer />
     </div>
   );

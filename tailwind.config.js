@@ -36,8 +36,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
+        display: ['Syne', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
+        body: ['DM Sans', 'sans-serif'],
+        mono: ['Space Mono', 'monospace'],
       },
       fontSize: {
         'xs': '12px',
