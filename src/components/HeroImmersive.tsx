@@ -1,22 +1,26 @@
-import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { motion, useMotionValue } from 'framer-motion';
+import { Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion(Link);
+
+const HERO_COLORS = [
+  { primary: '#F0EFEB', secondary: '#316064', name: 'Cloud Dancer × Teal Transformativo' },
+  { primary: '#B39DDB', secondary: '#DDC48E', name: 'Sueños Violeta × Niebla Dorada' },
+  { primary: '#FF3AC1', secondary: '#7DA9D9', name: 'Fusión Eléctrica × Aura Azul' },
+  { primary: '#A8D5BA', secondary: '#D49A6A', name: 'Menta Floreciente × Ámbar' },
+];
 
 export default function HeroImmersive() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-
   const [activeColor, setActiveColor] = useState(0);
-  const colors = [
-    { primary: '#F0EFEB', secondary: '#316064', name: 'Cloud Dancer × Teal Transformativo' },
-    { primary: '#B39DDB', secondary: '#DDC48E', name: 'Sueños Violeta × Niebla Dorada' },
-    { primary: '#FF3AC1', secondary: '#7DA9D9', name: 'Fusión Eléctrica × Aura Azul' },
-    { primary: '#A8D5BA', secondary: '#D49A6A', name: 'Menta Floreciente × Ámbar' },
-  ];
 
   // Auto-rotate colores cada 4 segundos
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveColor((prev) => (prev + 1) % colors.length);
+      setActiveColor((prev) => (prev + 1) % HERO_COLORS.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
@@ -26,22 +30,18 @@ export default function HeroImmersive() {
     mouseY.set(e.clientY);
   };
 
-  // Transformar posición del mouse a porcentajes para el gradiente
-  const gradientX = useTransform(mouseX, [0, typeof window !== 'undefined' ? window.innerWidth : 1920], [30, 70]);
-  const gradientY = useTransform(mouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1080], [30, 70]);
-
   return (
     <motion.section
       className="relative min-h-screen flex items-center justify-center overflow-hidden cursor-none"
       onMouseMove={handleMouseMove}
       animate={{
         background: [
-          `radial-gradient(circle at 50% 50%, ${colors[activeColor].primary}dd 0%, ${colors[activeColor].secondary}88 40%, #0D0D0D 100%)`,
-          `radial-gradient(circle at 65% 35%, ${colors[activeColor].primary}dd 0%, ${colors[activeColor].secondary}88 40%, #0D0D0D 100%)`,
-          `radial-gradient(circle at 35% 65%, ${colors[activeColor].primary}dd 0%, ${colors[activeColor].secondary}88 40%, #0D0D0D 100%)`,
-          `radial-gradient(circle at 50% 50%, ${colors[activeColor].primary}dd 0%, ${colors[activeColor].secondary}88 40%, #0D0D0D 100%)`,
-        ],
-      }}
+           `radial-gradient(circle at 50% 50%, ${HERO_COLORS[activeColor].primary}dd 0%, ${HERO_COLORS[activeColor].secondary}88 40%, #0D0D0D 100%)`,
+           `radial-gradient(circle at 65% 35%, ${HERO_COLORS[activeColor].primary}dd 0%, ${HERO_COLORS[activeColor].secondary}88 40%, #0D0D0D 100%)`,
+           `radial-gradient(circle at 35% 65%, ${HERO_COLORS[activeColor].primary}dd 0%, ${HERO_COLORS[activeColor].secondary}88 40%, #0D0D0D 100%)`,
+           `radial-gradient(circle at 50% 50%, ${HERO_COLORS[activeColor].primary}dd 0%, ${HERO_COLORS[activeColor].secondary}88 40%, #0D0D0D 100%)`,
+         ],
+       }}
       transition={{
         duration: 8,
         ease: 'easeInOut',
@@ -52,9 +52,9 @@ export default function HeroImmersive() {
       <motion.div
         className="fixed w-40 h-40 rounded-full pointer-events-none mix-blend-screen z-50"
         style={{
-          background: `radial-gradient(circle, ${colors[activeColor].primary}88 0%, transparent 70%)`,
-          x: mouseX,
-          y: mouseY,
+           background: `radial-gradient(circle, ${HERO_COLORS[activeColor].primary}88 0%, transparent 70%)`,
+           x: mouseX,
+           y: mouseY,
           translateX: '-50%',
           translateY: '-50%',
         }}
@@ -67,9 +67,9 @@ export default function HeroImmersive() {
             key={i}
             className="absolute w-2 h-2 rounded-full"
             style={{
-              background: i % 2 === 0 ? colors[activeColor].primary : colors[activeColor].secondary,
-              left: `${(i * 8.33) % 100}%`,
-              top: `${(i * 15) % 100}%`,
+               background: i % 2 === 0 ? HERO_COLORS[activeColor].primary : HERO_COLORS[activeColor].secondary,
+               left: `${(i * 8.33) % 100}%`,
+               top: `${(i * 15) % 100}%`,
             }}
             animate={{
               y: [0, -30, 0],
@@ -121,12 +121,12 @@ export default function HeroImmersive() {
           transition={{ delay: 0.6 }}
         >
           <p className="text-2xl md:text-3xl text-white/90 mb-4 font-light tracking-wide">
-            {colors[activeColor].name}
+            {HERO_COLORS[activeColor].name}
           </p>
 
           {/* Indicadores de color activo */}
           <div className="flex gap-3 justify-center">
-            {colors.map((color, i) => (
+            {HERO_COLORS.map((color, i) => (
               <motion.button
                 key={i}
                 className="w-3 h-3 rounded-full cursor-pointer"
@@ -145,23 +145,38 @@ export default function HeroImmersive() {
           </div>
         </motion.div>
 
-        <motion.a
-          href="#palettes"
-          className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-xl text-white px-10 py-5 rounded-full font-bold text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300 group"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.6)' }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span>Explorar Experiencia</span>
-          <motion.span
-            animate={{ x: [0, 5, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <motion.a
+            href="#palettes"
+            className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-xl text-white px-10 py-5 rounded-full font-bold text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300 group"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+            whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.6)' }}
+            whileTap={{ scale: 0.95 }}
           >
-            →
-          </motion.span>
-        </motion.a>
+            <span>Explorar Experiencia</span>
+            <motion.span
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              →
+            </motion.span>
+          </motion.a>
+
+          <MotionLink
+            to="/visualizer"
+            className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl text-white px-10 py-5 rounded-full font-bold text-lg border-2 border-white/20 hover:bg-white/20 transition-all duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.05 }}
+            whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.5)' }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Sparkles className="h-5 w-5 text-white/80" />
+            Crear Fondos
+          </MotionLink>
+        </div>
       </div>
 
       {/* Scroll indicator con animación líquida */}

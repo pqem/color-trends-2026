@@ -1,14 +1,14 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { palettes } from '../data/palettes';
+import type { Palette } from '../data/palettes';
 import LiveColorSwatch from './LiveColorSwatch';
 import PaletteInfoTabs from './PaletteInfoTabs';
 
 export default function PalettesExplorer() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [hoveredPalette, setHoveredPalette] = useState<number | null>(null);
 
   // Detectar scroll para actualizar currentSlide
   useEffect(() => {
@@ -137,8 +137,6 @@ export default function PalettesExplorer() {
             palette={palette}
             index={index}
             isActive={currentSlide === index}
-            isHovered={hoveredPalette === index}
-            onHover={() => setHoveredPalette(index)}
           />
         ))}
       </div>
@@ -147,18 +145,15 @@ export default function PalettesExplorer() {
 }
 
 interface PaletteSlideProps {
-  palette: any;
+  palette: Palette;
   index: number;
   isActive: boolean;
-  isHovered: boolean;
-  onHover: () => void;
 }
 
-function PaletteSlide({ palette, index, isActive, isHovered, onHover }: PaletteSlideProps) {
+function PaletteSlide({ palette, index, isActive }: PaletteSlideProps) {
   return (
     <div
       className="min-w-full h-full snap-center flex items-center justify-center relative px-5"
-      onMouseEnter={onHover}
     >
       {/* Fondo con los 5 colores en capas con parallax */}
       <div className="absolute inset-0 overflow-hidden">

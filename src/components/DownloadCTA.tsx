@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
-import { Download, FileText, Palette, Sparkles } from 'lucide-react';
-import { fadeInUpSlow, viewportOnce } from '../utils/animations';
+import { Download, FileText, Palette, Sparkles, Wand2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { viewportOnce } from '../utils/animations';
+
+const MotionLink = motion(Link);
 
 export default function DownloadCTA() {
   return (
@@ -160,6 +163,16 @@ export default function DownloadCTA() {
               ))}
             </motion.div>
           </motion.a>
+
+          <MotionLink
+            to="/visualizer"
+            className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-white/30 bg-white/10 px-10 py-4 text-lg font-semibold text-white backdrop-blur-xl transition-all hover:bg-white/20"
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.96 }}
+          >
+            <Wand2 className="w-6 h-6" />
+            Visualizador de Fondos Interactivos
+          </MotionLink>
 
           {/* Texto secundario */}
           <motion.p

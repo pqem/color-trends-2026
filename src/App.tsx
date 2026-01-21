@@ -1,22 +1,13 @@
-import HeroImmersive from './components/HeroImmersive';
-import ColorIntro from './components/ColorIntro';
-import PalettesExplorer from './components/PalettesExplorer';
-import DownloadCTA from './components/DownloadCTA';
-import ClaudeReveal from './components/ClaudeReveal';
-import Footer from './components/Footer';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Visualizer from './pages/Visualizer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-black">
-      <HeroImmersive />
-      <ColorIntro />
-      <PalettesExplorer />
-      <DownloadCTA />
-      <div id="claude-reveal">
-        <ClaudeReveal />
-      </div>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/visualizer" element={<Visualizer />} />
+    </Routes>
   );
 }
 
