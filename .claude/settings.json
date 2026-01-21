@@ -15,13 +15,17 @@
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(./secrets/**)",
+      "Read(./node_modules/**)",
+      "Read(./.git/**)",
+      "Read(./dist/**)",
+      "Read(./build/**)",
       "Edit(./.env)",
       "Write(./.env)",
       "Bash(rm -rf:*)",
       "Bash(sudo:*)"
     ]
   },
-  "model": "claude-opus-4-5-20251101",
+  "model": "sonnet",
   "hooks": {
     "PostToolUse": [
       {

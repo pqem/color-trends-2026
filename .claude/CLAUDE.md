@@ -578,8 +578,18 @@ Al hacer preguntas a Claude sobre este proyecto, automáticamente cargará este 
 
 ---
 
-**Última actualización**: December 26, 2025
-**Versión**: 1.0.0
+## Summary Instructions
+
+When you are using compact (auto-compaction or `/compact` command):
+- Focus on code changes and test results
+- Preserve component structure and architecture decisions
+- Keep color palette data and design system information
+- Maintain skill references (git-commits, testing-basics)
+
+---
+
+**Última actualización**: December 28, 2025
+**Versión**: 1.1.0
 **Built with**: React 19 + Vite 7 + Tailwind 4 + Claude Code
 
 **Built with clarity. Designed with purpose. Documented with care.** 🎨✨
