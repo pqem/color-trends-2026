@@ -1,0 +1,1 @@
+/home/pablo/color-trends-2026/AGENTS.md
