@@ -107,42 +107,40 @@ export default function Visualizer() {
 
         <div className="flex-1" />
 
-        <div className="fixed bottom-0 left-0 right-0 z-20">
-          <div className="mx-auto w-full max-w-6xl px-6 pb-6">
-            <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-              <VisualizerControls
-                palettes={paletteOptions}
-                activePaletteId={activePaletteId}
-                onPaletteChange={handlePaletteChange}
-                primaryColor={primaryColor}
-                secondaryColor={secondaryColor}
-                onPrimaryColorChange={setPrimaryColor}
-                onSecondaryColorChange={setSecondaryColor}
-                animationSpeed={animationSpeed}
-                onAnimationSpeedChange={setAnimationSpeed}
-                particleIntensity={particleIntensity}
-                onParticleIntensityChange={setParticleIntensity}
-                enableBlur={enableBlur}
-                onToggleBlur={() => setEnableBlur((prev) => !prev)}
-                enableNoise={enableNoise}
-                onToggleNoise={() => setEnableNoise((prev) => !prev)}
-                onRandomize={handleRandomize}
+        <div className="fixed bottom-0 left-0 right-0 z-20 px-6 pb-6 lg:bottom-auto lg:left-auto lg:right-6 lg:top-24 lg:w-96 lg:px-0 lg:pb-0">
+          <div className="mx-auto w-full max-w-xl space-y-6 lg:max-w-none">
+            <VisualizerControls
+              palettes={paletteOptions}
+              activePaletteId={activePaletteId}
+              onPaletteChange={handlePaletteChange}
+              primaryColor={primaryColor}
+              secondaryColor={secondaryColor}
+              onPrimaryColorChange={setPrimaryColor}
+              onSecondaryColorChange={setSecondaryColor}
+              animationSpeed={animationSpeed}
+              onAnimationSpeedChange={setAnimationSpeed}
+              particleIntensity={particleIntensity}
+              onParticleIntensityChange={setParticleIntensity}
+              enableBlur={enableBlur}
+              onToggleBlur={() => setEnableBlur((prev) => !prev)}
+              enableNoise={enableNoise}
+              onToggleNoise={() => setEnableNoise((prev) => !prev)}
+              onRandomize={handleRandomize}
+            />
+            <div className="space-y-4">
+              <ExportPanel
+                aspectRatio={aspectRatio}
+                onAspectRatioChange={setAspectRatio}
+                quality={quality}
+                onQualityChange={setQuality}
+                onExport={handleExport}
+                isExporting={isExporting}
               />
-              <div className="space-y-4">
-                <ExportPanel
-                  aspectRatio={aspectRatio}
-                  onAspectRatioChange={setAspectRatio}
-                  quality={quality}
-                  onQualityChange={setQuality}
-                  onExport={handleExport}
-                  isExporting={isExporting}
-                />
-                {error && (
-                  <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-100">
-                    {error.message}
-                  </div>
-                )}
-              </div>
+              {error && (
+                <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-100">
+                  {error.message}
+                </div>
+              )}
             </div>
           </div>
         </div>
