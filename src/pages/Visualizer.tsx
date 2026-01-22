@@ -72,7 +72,7 @@ export default function Visualizer() {
 
   return (
     <div className="relative min-h-screen bg-black text-white">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 lg:right-[25.5rem]">
         <BackgroundVisualizer
           ref={backgroundRef}
           primaryColor={primaryColor}
@@ -107,7 +107,7 @@ export default function Visualizer() {
 
         <div className="flex-1" />
 
-        <div className="fixed bottom-0 left-0 right-0 z-20 px-6 pb-6 lg:bottom-auto lg:left-auto lg:right-6 lg:top-24 lg:w-96 lg:px-0 lg:pb-0">
+        <div className="fixed bottom-0 left-0 right-0 z-20 px-6 pb-6 lg:bottom-6 lg:left-auto lg:right-6 lg:top-24 lg:w-96 lg:px-0 lg:pb-0 lg:overflow-y-auto lg:pr-2">
           <div className="mx-auto w-full max-w-xl space-y-6 lg:max-w-none">
             <VisualizerControls
               palettes={paletteOptions}

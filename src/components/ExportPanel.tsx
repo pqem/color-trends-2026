@@ -25,13 +25,14 @@ export default function ExportPanel({
 
   return (
     <div className="rounded-3xl border border-white/10 bg-black/60 p-6 backdrop-blur-xl">
-      <div className="flex items-center justify-between gap-4">
-        <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-white/60">Exportar Fondo</p>
-          <h3 className="text-xl font-semibold text-white">Alta resolucion</h3>
-        </div>
-        <div className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs text-white/70">
-          {size.width} x {size.height}px
+      <div>
+        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Exportar Fondo</p>
+        <h3 className="text-xl font-semibold text-white">Alta resolucion</h3>
+        <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-white/50 leading-none">
+          Tamano
+          <span className="font-mono text-[11px] tracking-normal text-white/80">
+            {size.width} x {size.height}px
+          </span>
         </div>
       </div>
 

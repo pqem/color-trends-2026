@@ -611,3 +611,12 @@ When you are using compact (auto-compaction or `/compact` command):
 **Status:** Repo listo con entorno local seguro; mcp.local.json preparado (no versionado)
 **Next:** Configurar token en mcp.local.json en la otra PC si hace falta MCP GitHub
 **Decisions:** Mantener servidores solo en 127.0.0.1 para evitar exposicion
+
+## Session Update
+
+**Date:** 2026-01-22
+**Goal:** Ajustar layout del panel de exportacion en el visualizador
+**Completed:** Contenedor del visualizador deja espacio a la columna; panel de controles con scroll interno; chip de tamano compacto; selector de formatos en una linea con preview proporcional
+**Status:** UI del export panel mas compacta y legible sin bloquear el fondo
+**Next:** Verificar que la columna no requiera scroll en pantallas objetivo
+**Decisions:** Mantener previews sin relleno para preservar estilo minimalista
