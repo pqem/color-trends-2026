@@ -602,3 +602,12 @@ When you are using compact (auto-compaction or `/compact` command):
 **Status:** AGENTS.md actualizado y sincronizado; skills y configs IDE/MCP generadas
 **Next:** Revisar si hace falta ajustar scopes o agregar skills extra
 **Decisions:** Usar preset MCP web-dev para tooling frontend
+
+## Session Update
+
+**Date:** 2026-01-22
+**Goal:** Cerrar acceso publico y dejar configuracion local segura
+**Completed:** Servidor Vite atado a localhost, escaneo rapido sin secretos reales, agregado ignore para mcp.local, y task local de VS Code
+**Status:** Repo listo con entorno local seguro; mcp.local.json preparado (no versionado)
+**Next:** Configurar token en mcp.local.json en la otra PC si hace falta MCP GitHub
+**Decisions:** Mantener servidores solo en 127.0.0.1 para evitar exposicion
